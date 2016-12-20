@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.brainystuffs.Main2Activity"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/was"
+    android:visibility="invisible">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start The Game."
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:onClick="vis"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2a2828"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.Player will be given 30 seconds."
+            android:id="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:textColor="#f9f1f1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.Answer maximum questions within the timelimit"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
+            android:textSize="27dp"
+            android:textColor="#faf6f6" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.Attempt 10 ques correctly:Above Avg."
+            android:id="@+id/textView4"
+            android:layout_marginTop="90dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:textSize="27dp"
+            android:textColor="#f7f3f3" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RULES!"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:textColor="#d31212"
+        android:textStyle="bold" />
+</RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/was2"
+    android:padding="0dp"
+    android:background="#4eb9b7b7">
+
+
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:text="30s"
+        android:id="@+id/timerTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:background="#8d8b8b" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/0"
+        android:id="@+id/pointsTextView"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:background="#8d8b8b"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="31+12"
+        android:id="@+id/sumTextView"
+        android:layout_alignBottom="@+id/timerTextView"
+        android:layout_toRightOf="@+id/timerTextView"
+        android:layout_toEndOf="@+id/timerTextView"
+        android:layout_alignParentTop="true"
+        android:textSize="35dp"
+        android:textColor="#393737"
+        android:textStyle="bold"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timerTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="75dp"
+        android:id="@+id/gridLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/button20"
+            android:tag="0"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:textStyle="bold"
+            android:textSize="80dp"
+            android:background="#373738"
+            android:onClick="chooseAnswer"
+            android:textColor="#fbf8f8"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/button21"
+            android:tag="1"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:textStyle="bold"
+            android:textSize="80dp"
+            android:background="#373738"
+            android:onClick="chooseAnswer"
+            android:textColor="#fbf8f8"
+            android:layout_marginBottom="15dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/button22"
+            android:tag="2"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:textStyle="bold"
+            android:textSize="80dp"
+            android:background="#373738"
+            android:onClick="chooseAnswer"
+            android:textColor="#fbf8f8"
+            android:layout_marginRight="15dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/button23"
+            android:tag="3"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:textStyle="bold"
+            android:textSize="80dp"
+            android:background="#373738"
+            android:onClick="chooseAnswer"
+            android:textColor="#fbf8f8" />
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultTextView"
+        android:layout_below="@+id/gridLayout"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:background="#676565"
+        android:textColor="#faf8f8"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PlayAgain!"
+        android:id="@+id/playAg"
+        android:onClick="playAgain"
+        android:visibility="invisible"
+        android:textColor="#f8f7f7"
+        android:background="#303030"
+        android:layout_centerVertical="true"
+        android:padding="50dp"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
+</RelativeLayout>
