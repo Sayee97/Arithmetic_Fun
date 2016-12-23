@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -71,12 +72,19 @@ int answerLocation;
                    tvTimer.setVisibility(View.INVISIBLE);
                    tvpoint.setVisibility(View.INVISIBLE);
                    tvTimer.setText("0" + "s");
-                   if (score > 10)
-                       tvresult.setText("Well done..Your Score is: " + Integer.toString(score) + " / " + Integer.toString(ques));
+                   double perc=(score*100.0)/ques;
+                   perc=Double.parseDouble(new DecimalFormat("##.##").format(perc));
+                   if (perc> 85) {
+                       if (ques >= 10) {
+                           tvresult.setText("Well done..Your Score is: " + perc + "%");
+                       } else {
 
+                           tvresult.setText("Sorry ques attempted were less and cant be appreciated. Score: " + perc + "%");
+                       }
 
+                   }
                    else
-                       tvresult.setText("Below Average..Your score is: " + Integer.toString(score) + " / " + Integer.toString(ques));
+                       tvresult.setText("Below Average..Your score is: " +perc+"%");
 
                }
            }.start();
@@ -114,31 +122,83 @@ tvTimer=(TextView)findViewById(R.id.timerTextView);
 
 
     public  void generateQ(){
+
         Random r =new Random();
-        int a= r.nextInt(21);
-        int b=r.nextInt(21);
-        tvsum.setText(Integer.toString(a)+" + "+Integer.toString(b));
-        answerLocation=r.nextInt(4);
-        numbers.clear();
-        for(int i=0;i<4;i++){
-            if(i==answerLocation){
-                numbers.add(a+b);
-            }
-            else{
-                int incorrect;
-                incorrect=r.nextInt(41);
-                while(incorrect==(a+b)){
-                    incorrect=r.nextInt(41);
+        int q=r.nextInt(3);
+        if(q==0) {
+            int a = r.nextInt(21);
+            int b = r.nextInt(21);
+            tvsum.setText(Integer.toString(a) + " + " + Integer.toString(b));
+            answerLocation = r.nextInt(4);
+            numbers.clear();
+            for (int i = 0; i < 4; i++) {
+                if (i == answerLocation) {
+                    numbers.add(a + b);
+                } else {
+                    int incorrect;
+                    incorrect = r.nextInt(41);
+                    while (incorrect == (a + b)) {
+                        incorrect = r.nextInt(41);
+                    }
+                    numbers.add(incorrect);
+
                 }
-                numbers.add(incorrect);
-
             }
+            button0.setText(Integer.toString(numbers.get(0)));
+            button1.setText(Integer.toString(numbers.get(1)));
+            button2.setText(Integer.toString(numbers.get(2)));
+            button3.setText(Integer.toString(numbers.get(3)));
         }
-        button0.setText(Integer.toString(numbers.get(0)));
-        button1.setText(Integer.toString(numbers.get(1)));
-        button2.setText(Integer.toString(numbers.get(2)));
-        button3.setText(Integer.toString(numbers.get(3)));
+        else if(q==1){
+            int a = r.nextInt(21);
+            int b = r.nextInt(21);
+            tvsum.setText(Integer.toString(a) + " - " + Integer.toString(b));
+            answerLocation = r.nextInt(4);
+            numbers.clear();
+            for (int i = 0; i < 4; i++) {
+                if (i == answerLocation) {
+                    numbers.add(a - b);
+                } else {
+                    int incorrect;
+                    incorrect = r.nextInt(41);
+                    while (incorrect == (a - b)) {
+                        incorrect = r.nextInt(41);
+                    }
+                    numbers.add(incorrect);
 
+                }
+            }
+            button0.setText(Integer.toString(numbers.get(0)));
+            button1.setText(Integer.toString(numbers.get(1)));
+            button2.setText(Integer.toString(numbers.get(2)));
+            button3.setText(Integer.toString(numbers.get(3)));
+
+        }
+        else {
+            int a = r.nextInt(15);
+            int b = r.nextInt(15);
+            tvsum.setText(Integer.toString(a) + " * " + Integer.toString(b));
+            answerLocation = r.nextInt(4);
+            numbers.clear();
+            for (int i = 0; i < 4; i++) {
+                if (i == answerLocation) {
+                    numbers.add(a * b);
+                } else {
+                    int incorrect;
+                    incorrect = r.nextInt(225);
+                    while (incorrect == (a * b)) {
+                        incorrect = r.nextInt(225);
+                    }
+                    numbers.add(incorrect);
+
+                }
+            }
+            button0.setText(Integer.toString(numbers.get(0)));
+            button1.setText(Integer.toString(numbers.get(1)));
+            button2.setText(Integer.toString(numbers.get(2)));
+            button3.setText(Integer.toString(numbers.get(3)));
+
+        }
 
     }
 
